@@ -19,4 +19,8 @@ public class Prestec
     public void setDataInici(String dataInici) {this.dataInici = dataInici;}
     public String getDataFinal() {return dataFinal;}
     public void setDataFinal(String dataFinal) {this.dataFinal = dataFinal;}
+    public String toString()
+    {
+        return "\n  Data Inici: "+dataInici+"\n  Data Final: "+dataFinal+"\n  Soci: "+soci.toString()+"\n  LLibre: "+llibre.toString();
+    }
 }

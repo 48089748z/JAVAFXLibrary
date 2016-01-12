@@ -13,18 +13,36 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#newBook" text="Llibre" />
                   <MenuItem mnemonicParsing="false" onAction="#newSoci" text="Soci" />
+                  <MenuItem mnemonicParsing="false" onAction="#newPrestec" text="Prestec" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Llistar">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#listBooks" text="Llibres" />
                   <MenuItem mnemonicParsing="false" onAction="#listMembers" text="Socis" />
+                  <MenuItem mnemonicParsing="false" onAction="#listPrestecs" text="Prestecs" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Buscar">
+              <items>
+                  <Menu mnemonicParsing="false" text="Llibre">
+                    <items>
+                    <MenuItem mnemonicParsing="false" onAction="#searchBookByTitle" text="per Titol" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchBookByAuthor" text="per Autor" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Soci">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#searchMemberByName" text="per Nom" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchMemberBySurname" text="per Cognom" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Otros">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
-            </items>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#close" text="Tancar" />
+               </items>
           </Menu>
         </menus>
       </MenuBar>
@@ -33,12 +51,15 @@
       <TextField fx:id="field3" layoutX="14.0" layoutY="146.0" />
       <TextField fx:id="field4" layoutX="14.0" layoutY="187.0" />
       <TextField fx:id="field5" layoutX="14.0" layoutY="229.0" />
-      <Button fx:id="aceptar" layoutX="69.0" layoutY="278.0" mnemonicParsing="false" onAction="#checkFields" text="Aceptar" />
+      <TextField fx:id="field6" layoutX="14.0" layoutY="270.0" />
+      <Button fx:id="aceptar" layoutX="69.0" layoutY="317.0" mnemonicParsing="false" onAction="#checkFields" prefHeight="26.0" prefWidth="142.0" text="Guardar" />
       <Text fx:id="textGuide" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benvingut a la biblioteca" wrappingWidth="171.00000008940697" />
-      <ScrollPane fx:id="scrollPane" layoutX="4.0" layoutY="29.0" prefHeight="321.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
-         <content>
-            <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Scroll Text" wrappingWidth="246.7294921875" />
-         </content>
-      </ScrollPane>
+      <TextField fx:id="searchField" layoutX="14.0" layoutY="81.0" />
+      <Button fx:id="searchButton" layoutX="203.0" layoutY="81.0" mnemonicParsing="false" onAction="#search" text="Buscar" />
+       <ScrollPane fx:id="scrollPane" layoutX="4.0" layoutY="29.0" prefHeight="321.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+           <content>
+               <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Scroll Text" wrappingWidth="246.7294921875" />
+           </content>
+       </ScrollPane>
    </children>
 </AnchorPane>
