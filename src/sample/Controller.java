@@ -27,65 +27,6 @@ public class Controller
     public TextField field5;
     public Button aceptar;
     public Button searchButton;
-    public void initialize()
-    {
-        textGuide.setText("\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres. \n\nAfegir Socis. \n\nMostrar llistats de Llibres.\n\nMostrar llistats de Socis.\n\nEtc.");
-        hideFields();
-    }
-    public void newBook(ActionEvent actionEvent)
-    {
-        hideFields();
-        showFields();
-        textGuide.setText("Nou Llibre");
-        field1.setText("");
-        field1.setPromptText("Titol");
-        field2.setText("");
-        field2.setPromptText("Num Exemplars");
-        field3.setText("");
-        field3.setPromptText("Editorial");
-        field4.setText("");
-        field4.setPromptText("Num Pagines");
-        field5.setText("");
-        field5.setPromptText("Any Edició");
-        field6.setText("");
-        field6.setPromptText("Autor");
-        newWhat="book";
-    }
-    public void newSoci(ActionEvent actionEvent)
-    {
-        hideFields();
-        showFields();
-        field6.setVisible(false);
-        textGuide.setText("Nou Soci");
-        field1.setText("");
-        field1.setPromptText("Nom");
-        field2.setText("");
-        field2.setPromptText("Cognom");
-        field3.setText("");
-        field3.setPromptText("Edat");
-        field4.setText("");
-        field4.setPromptText("Direccio");
-        field5.setText("");
-        field5.setPromptText("Telefon");
-        newWhat="soci";
-    }
-    public void newPrestec(ActionEvent actionEvent)
-    {
-        hideFields();
-        showFields();
-        field5.setVisible(false);
-        field6.setVisible(false);
-        textGuide.setText("Nou Prestec");
-        field1.setText("");
-        field1.setPromptText("Titol Llibre");
-        field2.setText("");
-        field2.setPromptText("Nom Soci");
-        field3.setText("");
-        field3.setPromptText("Data Inici");
-        field4.setText("");
-        field4.setPromptText("Data Final");
-        newWhat="prestec";
-    }
     private void createBook()
     {
         if (field1.getText().equals("") || field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("") || field5.getText().equals("") || field6.getText().equals(""))
@@ -162,6 +103,65 @@ public class Controller
             }
 
         }
+    }
+    public void initialize()
+    {
+        textGuide.setText("\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres. \n\nAfegir Socis. \n\nAfegir Prestecs \n\nMostrar llistats de Llibres.\n\nMostrar llistats de Socis.\n\nMostrar llistats de Prestecs    \n\nEtc.");
+        hideFields();
+    }
+    public void newBook(ActionEvent actionEvent)
+    {
+        hideFields();
+        showFields();
+        textGuide.setText("Nou Llibre");
+        field1.setText("");
+        field1.setPromptText("Titol");
+        field2.setText("");
+        field2.setPromptText("Num Exemplars");
+        field3.setText("");
+        field3.setPromptText("Editorial");
+        field4.setText("");
+        field4.setPromptText("Num Pagines");
+        field5.setText("");
+        field5.setPromptText("Any Edició");
+        field6.setText("");
+        field6.setPromptText("Autor");
+        newWhat="book";
+    }
+    public void newSoci(ActionEvent actionEvent)
+    {
+        hideFields();
+        showFields();
+        field6.setVisible(false);
+        textGuide.setText("Nou Soci");
+        field1.setText("");
+        field1.setPromptText("Nom");
+        field2.setText("");
+        field2.setPromptText("Cognom");
+        field3.setText("");
+        field3.setPromptText("Edat");
+        field4.setText("");
+        field4.setPromptText("Direccio");
+        field5.setText("");
+        field5.setPromptText("Telefon");
+        newWhat="soci";
+    }
+    public void newPrestec(ActionEvent actionEvent)
+    {
+        hideFields();
+        showFields();
+        field5.setVisible(false);
+        field6.setVisible(false);
+        textGuide.setText("Nou Prestec");
+        field1.setText("");
+        field1.setPromptText("Titol Llibre");
+        field2.setText("");
+        field2.setPromptText("Nom Soci");
+        field3.setText("");
+        field3.setPromptText("Data Inici");
+        field4.setText("");
+        field4.setPromptText("Data Final");
+        newWhat="prestec";
     }
     public void listBooks(ActionEvent actionEvent)
     {

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bnd-2.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Baixades/NOBORRAR/hibernate-release-5.0.7.Final/project/hibernate-osgi/src/test/resources/bnd/bnd-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -2,16 +2,32 @@ package sample;
 /**
  * Created by 48089748z on 08/01/16.
  */
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Table(name = "BOOK")
 public class Llibre
 {
-    //Llibres (títol, nombre d'exemplars, editorial, nombre de pàgines, any d'edició)
-
+    @Id @GeneratedValue
+    @Column(name="titol")
     private String titol;
+
+    @Column(name="autor")
     private String autor;
+
+    @Column(name="numExemplars")
     private String numExemplars;
+
+    @Column(name="editorial")
     private String editorial;
+
+    @Column(name="numPagines")
     private String numPagines;
+
+    @Column(name="anyEdicio")
     private String anyEdicio;
+
     public Llibre() {}
     public String getTitol() {return titol;}
     public void setTitol(String titol) {this.titol = titol;}
