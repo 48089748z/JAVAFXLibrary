@@ -1,5 +1,4 @@
 package sample;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,6 +33,6 @@ public class Prestec
     public void setDataFinal(String dataFinal) {this.dataFinal = dataFinal;}
     public String toString()
     {
-        return "\n  Data Inici: "+dataInici+"\n  Data Final: "+dataFinal+"\n  Soci: "+soci.toString()+"\n  LLibre: "+llibre.toString();
+        return "\n     Data Inici: "+dataInici+"\n     Data Final: "+dataFinal+"\n     Soci: "+soci.toString()+"\n     LLibre: "+llibre.toString();
     }
 }

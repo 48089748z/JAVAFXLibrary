@@ -1,5 +1,4 @@
 package sample;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -7,17 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
-
 public class Controller
 {
-    public String newWhat;
-    public String whatToSearch;
     public ScrollPane scrollPane;
+
     public Text scrollText;
-    public TextField field6;
-    private ArrayList<Llibre> llibres = new ArrayList<>();
-    private ArrayList<Soci> socis = new ArrayList<>();
-    private ArrayList<Prestec> prestecs = new ArrayList<>();
     public Text textGuide;
     public TextField searchField;
     public TextField field1;
@@ -25,13 +18,22 @@ public class Controller
     public TextField field3;
     public TextField field4;
     public TextField field5;
+    public TextField field6;
+
     public Button aceptar;
     public Button searchButton;
+
+    private ArrayList<Llibre> llibres = new ArrayList<>();
+    private ArrayList<Soci> socis = new ArrayList<>();
+    private ArrayList<Prestec> prestecs = new ArrayList<>();
+    public String newWhat;
+    public String whatToSearch;
+
     private void createBook()
     {
         if (field1.getText().equals("") || field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("") || field5.getText().equals("") || field6.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOmple tots els camps!");
         }
         else
         {
@@ -43,15 +45,15 @@ public class Controller
             llibre.setAnyEdicio(field5.getText());
             llibre.setAutor(field6.getText());
             llibres.add(llibre);
-            hideFields();
-            textGuide.setText("CREAT LLIBRE: \n"+llibre.toString());
+            hideAllFields();
+            textGuide.setText("\nCREAT LLIBRE: \n" + llibre.toString());
         }
     }
     private void createSoci()
     {
         if (field1.getText().equals("") || field2.getText().equals("") ||field3.getText().equals("") ||field4.getText().equals("") ||field5.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOmple tots els camps!");
         }
         else
         {
@@ -62,15 +64,15 @@ public class Controller
             soci.setDireccio(field4.getText());
             soci.setTelefon(field5.getText());
             socis.add(soci);
-            hideFields();
-            textGuide.setText("CREAT SOCI: \n" + soci.toString());
+            hideAllFields();
+            textGuide.setText("\nCREAT SOCI: \n" + soci.toString());
         }
     }
     private void createPrestec()
     {
         if (field1.getText().equals("") || field2.getText().equals("") ||field3.getText().equals("") ||field4.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOmple tots els camps!");
         }
         else
         {
@@ -91,27 +93,26 @@ public class Controller
             }
             prestec.setDataInici(field3.getText());
             prestec.setDataFinal(field4.getText());
-            hideFields();
+            hideAllFields();
             try
             {
-                textGuide.setText("CREAT PRESTEC: \n" + prestec.toString());
+                textGuide.setText("\nCREAT PRESTEC: \n" + prestec.toString());
                 prestecs.add(prestec);
             }
             catch (Exception e)
             {
-                textGuide.setText("Llibre o Soci no existent!");
+                textGuide.setText("\nLlibre o Soci no existent!\n\nBusca a la llista de Llibres i Socis per veure quins hi han disponibles.\n\nTambé pots crear'ne de nous.");
             }
-
         }
     }
     public void initialize()
     {
         textGuide.setText("\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres. \n\nAfegir Socis. \n\nAfegir Prestecs \n\nMostrar llistats de Llibres.\n\nMostrar llistats de Socis.\n\nMostrar llistats de Prestecs    \n\nEtc.");
-        hideFields();
+        hideAllFields();
     }
     public void newBook(ActionEvent actionEvent)
     {
-        hideFields();
+        newWhat="book";
         showFields();
         textGuide.setText("Nou Llibre");
         field1.setText("");
@@ -126,11 +127,10 @@ public class Controller
         field5.setPromptText("Any Edició");
         field6.setText("");
         field6.setPromptText("Autor");
-        newWhat="book";
     }
     public void newSoci(ActionEvent actionEvent)
     {
-        hideFields();
+        newWhat="soci";
         showFields();
         field6.setVisible(false);
         textGuide.setText("Nou Soci");
@@ -144,11 +144,10 @@ public class Controller
         field4.setPromptText("Direccio");
         field5.setText("");
         field5.setPromptText("Telefon");
-        newWhat="soci";
     }
     public void newPrestec(ActionEvent actionEvent)
     {
-        hideFields();
+        newWhat="prestec";
         showFields();
         field5.setVisible(false);
         field6.setVisible(false);
@@ -161,12 +160,11 @@ public class Controller
         field3.setPromptText("Data Inici");
         field4.setText("");
         field4.setPromptText("Data Final");
-        newWhat="prestec";
     }
     public void listBooks(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
-        scrollText.setText("  LLISTA DE LLIBRES");
+        scrollText.setText("\n   LLISTA DE LLIBRES");
         for (int x=0; x<llibres.size(); x++)
         {
             scrollText.setText(scrollText.getText()+"\n\n"+llibres.get(x).toString());
@@ -175,7 +173,7 @@ public class Controller
     public void listMembers(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
-        scrollText.setText("  LLISTA DE SOCIS");
+        scrollText.setText("\n   LLISTA DE SOCIS");
         for (int x=0; x<socis.size(); x++)
         {
             scrollText.setText(scrollText.getText()+"\n\n"+socis.get(x).toString());
@@ -184,7 +182,7 @@ public class Controller
     public void listPrestecs(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
-        scrollText.setText("  LLISTA DE PRESTECS");
+        scrollText.setText("\n   LLISTA DE PRESTECS");
         for (int x=0; x<prestecs.size(); x++)
         {
             scrollText.setText(scrollText.getText()+"\n\n"+prestecs.get(x).toString());
@@ -205,7 +203,7 @@ public class Controller
             createPrestec();
         }
     }
-    public void hideFields()
+    public void hideAllFields()
     {
         searchButton.setVisible(false);
         searchField.setVisible(false);
@@ -220,6 +218,7 @@ public class Controller
     }
     public void showFields()
     {
+        hideAllFields();
         textGuide.setVisible(true);
         scrollPane.setVisible(false);
         aceptar.setVisible(true);
@@ -227,13 +226,20 @@ public class Controller
         field2.setVisible(true);
         field3.setVisible(true);
         field4.setVisible(true);
-        field5.setVisible(true);
-        field6.setVisible(true);
+        if (newWhat.equals("book") || newWhat.equals("soci"))
+        {
+            field5.setVisible(true);
+        }
+        if (newWhat.equals("book"))
+        {
+            field6.setVisible(true);
+        }
+
     }
     public void searchBookByTitle(ActionEvent actionEvent)
     {
         textGuide.setVisible(false);
-        hideFields();
+        hideAllFields();
         searchField.setVisible(true);
         searchButton.setVisible(true);
         searchField.setText("");
@@ -243,7 +249,7 @@ public class Controller
     public void searchBookByAuthor(ActionEvent actionEvent)
     {
         textGuide.setVisible(false);
-        hideFields();
+        hideAllFields();
         searchField.setVisible(true);
         searchButton.setVisible(true);
         searchField.setText("");
@@ -253,7 +259,7 @@ public class Controller
     public void searchMemberByName(ActionEvent actionEvent)
     {
         textGuide.setVisible(false);
-        hideFields();
+        hideAllFields();
         searchField.setVisible(true);
         searchButton.setVisible(true);
         searchField.setText("");
@@ -263,7 +269,7 @@ public class Controller
     public void searchMemberBySurname(ActionEvent actionEvent)
     {
         textGuide.setVisible(false);
-        hideFields();
+        hideAllFields();
         searchField.setVisible(true);
         searchButton.setVisible(true);
         searchField.setText("");
@@ -275,7 +281,7 @@ public class Controller
         if (whatToSearch.equals("title"))
         {
             scrollPane.setVisible(true);
-            scrollText.setText(" LLISTA DE LLIBRES AMB TITOL: '"+searchField.getText().toLowerCase()+"'");
+            scrollText.setText("\n  LLIBRES AMB TITOL:   '  "+searchField.getText().toLowerCase()+"  '");
             for (int x=0; x<llibres.size(); x++)
             {
                 if (llibres.get(x).getTitol().toLowerCase().equals(searchField.getText().toLowerCase()))
@@ -287,7 +293,7 @@ public class Controller
         if (whatToSearch.equals("author"))
         {
             scrollPane.setVisible(true);
-            scrollText.setText(" LLISTA DE LLIBRES AMB AUTOR: '"+searchField.getText().toLowerCase()+"'");
+            scrollText.setText("\n  LLIBRES AMB AUTOR:   '  "+searchField.getText().toLowerCase()+"  '");
             for (int x=0; x<llibres.size(); x++)
             {
                 if (llibres.get(x).getAutor().toLowerCase().equals(searchField.getText().toLowerCase()))
@@ -299,7 +305,7 @@ public class Controller
         if (whatToSearch.equals("name"))
         {
             scrollPane.setVisible(true);
-            scrollText.setText(" LLISTA DE SOCIS AMB NOM: '"+searchField.getText().toLowerCase()+"'");
+            scrollText.setText("\n  SOCIS AMB NOM:   '  "+searchField.getText().toLowerCase()+"  '");
             for (int x=0; x<socis.size(); x++)
             {
                 if (socis.get(x).getNom().toLowerCase().equals(searchField.getText().toLowerCase()))
@@ -311,7 +317,7 @@ public class Controller
         if (whatToSearch.equals("surname"))
         {
             scrollPane.setVisible(true);
-            scrollText.setText(" LLISTA DE SOCIS AMB COGNOM: '"+searchField.getText().toLowerCase()+"'");
+            scrollText.setText("\n  SOCIS AMB COGNOM:   '  "+searchField.getText().toLowerCase()+"  '");
             for (int x = 0; x < socis.size(); x++)
             {
                 if (socis.get(x).getCognom().toLowerCase().equals(searchField.getText().toLowerCase()))

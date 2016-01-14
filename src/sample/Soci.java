@@ -1,5 +1,4 @@
 package sample;
-
 /**
  * Created by 48089748z on 08/01/16.
  */
@@ -10,7 +9,6 @@ import javax.persistence.Table;
 @Table(name = "MEMBER")
 public class Soci
 {
-
     @Id @GeneratedValue
     @Column(name="nom")
     private String nom;
@@ -70,6 +68,6 @@ public class Soci
 
     public String toString()
     {
-        return "\n  Nom: "+nom+"\n  Cognom: "+cognom+"\n  Edat: "+edat+"\n  Direcció: "+direccio+"\n  Telefon: "+telefon;
+        return "\n     Nom: "+nom+"\n     Cognom: "+cognom+"\n     Edat: "+edat+"\n     Direcció: "+direccio+"\n     Telefon: "+telefon;
     }
 }

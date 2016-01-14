@@ -43,6 +43,6 @@ public class Llibre
     public void setAutor(String autor) {this.autor = autor;}
     public String toString()
     {
-        return "\n  Titol: "+titol+"\n  Autor: "+autor+"\n  Num Exemplars: "+numExemplars+"\n  Editorial: "+editorial+"\n  Num Pagines: "+numPagines+"\n  Any Edició: "+anyEdicio;
+        return "\n     Titol: "+titol+"\n     Autor: "+autor+"\n     Num Exemplars: "+numExemplars+"\n     Editorial: "+editorial+"\n     Num Pagines: "+numPagines+"\n     Any Edició: "+anyEdicio;
     }
 }
