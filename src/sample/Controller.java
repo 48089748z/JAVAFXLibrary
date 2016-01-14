@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Controller
 {
     public ScrollPane scrollPane;
-
     public Text scrollText;
     public Text textGuide;
     public TextField searchField;
@@ -19,10 +18,8 @@ public class Controller
     public TextField field4;
     public TextField field5;
     public TextField field6;
-
     public Button guardar;
     public Button buscar;
-
     private ArrayList<Llibre> llibres = new ArrayList<>();
     private ArrayList<Soci> socis = new ArrayList<>();
     private ArrayList<Prestec> prestecs = new ArrayList<>();
@@ -109,11 +106,12 @@ public class Controller
     {
         textGuide.setText("\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres.\n\nAfegir Socis.\n\nAfegir Prestecs.\n\nMostrar llistats de Llibres.\n\nMostrar llistats de Socis.\n\nMostrar llistats de Prestecs.\n\nEtc.");
         hideAllFields();
+        textGuide.setVisible(true);
     }
     public void newBook(ActionEvent actionEvent)
     {
         newWhat="BOOK";
-        showFields();
+        showNewFields();
         textGuide.setText("Nou Llibre");
         field1.setPromptText("Titol");
         field2.setPromptText("Num Exemplars");
@@ -125,7 +123,7 @@ public class Controller
     public void newSoci(ActionEvent actionEvent)
     {
         newWhat="SOCI";
-        showFields();
+        showNewFields();
         textGuide.setText("Nou Soci");
         field1.setPromptText("Nom");
         field2.setPromptText("Cognom");
@@ -136,7 +134,7 @@ public class Controller
     public void newPrestec(ActionEvent actionEvent)
     {
         newWhat="PRESTEC";
-        showFields();
+        showNewFields();
         textGuide.setText("Nou Prestec");
         field1.setPromptText("Titol Llibre");
         field2.setPromptText("Nom Soci");
@@ -147,49 +145,32 @@ public class Controller
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE LLIBRES");
-        for (int x=0; x<llibres.size(); x++)
-        {
-            scrollText.setText(scrollText.getText()+"\n\n"+llibres.get(x).toString());
-        }
+        for (int x=0; x<llibres.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+llibres.get(x).toString());}
     }
     public void listMembers(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE SOCIS");
-        for (int x=0; x<socis.size(); x++)
-        {
-            scrollText.setText(scrollText.getText()+"\n\n"+socis.get(x).toString());
-        }
+        for (int x=0; x<socis.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+socis.get(x).toString());}
     }
     public void listPrestecs(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE PRESTECS");
-        for (int x=0; x<prestecs.size(); x++)
-        {
-            scrollText.setText(scrollText.getText()+"\n\n"+prestecs.get(x).toString());
-        }
+        for (int x=0; x<prestecs.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+prestecs.get(x).toString());}
     }
     public void checkFields(ActionEvent actionEvent)
     {
-        if (newWhat.equals("BOOK"))
-        {
-            createBook();
-        }
-        if (newWhat.equals("SOCI"))
-        {
-            createSoci();
-        }
-        if (newWhat.equals("PRESTEC"))
-        {
-            createPrestec();
-        }
+        if (newWhat.equals("BOOK")) {createBook();}
+        if (newWhat.equals("SOCI")) {createSoci();}
+        if (newWhat.equals("PRESTEC")) {createPrestec();}
     }
     public void hideAllFields()
     {
-        buscar.setVisible(false);
+        textGuide.setVisible(false);
         searchField.setVisible(false);
         scrollPane.setVisible(false);
+        buscar.setVisible(false);
         guardar.setVisible(false);
         field1.setVisible(false);
         field2.setVisible(false);
@@ -198,12 +179,13 @@ public class Controller
         field5.setVisible(false);
         field6.setVisible(false);
     }
-    public void showFields()
+    public void showNewFields()
     {
         hideAllFields();
+        guardar.setVisible(true);
+        guardar.requestFocus();
         textGuide.setVisible(true);
         scrollPane.setVisible(false);
-        guardar.setVisible(true);
         field1.setVisible(true);
         field1.clear();
         field2.setVisible(true);
@@ -223,43 +205,35 @@ public class Controller
             field6.clear();
         }
     }
-    public void searchBookByTitle(ActionEvent actionEvent)
+    public void showSearchFields()
     {
-        textGuide.setVisible(false);
         hideAllFields();
         searchField.setVisible(true);
         buscar.setVisible(true);
-        searchField.setText("");
+        buscar.requestFocus();
+        searchField.clear();
+    }
+    public void searchBookByTitle(ActionEvent actionEvent)
+    {
+        showSearchFields();
         searchField.setPromptText("Buscar llibre por titol");
         whatToSearch = "TITLE";
     }
     public void searchBookByAuthor(ActionEvent actionEvent)
     {
-        textGuide.setVisible(false);
-        hideAllFields();
-        searchField.setVisible(true);
-        buscar.setVisible(true);
-        searchField.setText("");
+        showSearchFields();
         searchField.setPromptText("Buscar llibre per autor");
         whatToSearch = "AUTHOR";
     }
     public void searchMemberByName(ActionEvent actionEvent)
     {
-        textGuide.setVisible(false);
-        hideAllFields();
-        searchField.setVisible(true);
-        buscar.setVisible(true);
-        searchField.setText("");
+        showSearchFields();
         searchField.setPromptText("Buscar soci per nom");
         whatToSearch = "NAME";
     }
     public void searchMemberBySurname(ActionEvent actionEvent)
     {
-        textGuide.setVisible(false);
-        hideAllFields();
-        searchField.setVisible(true);
-        buscar.setVisible(true);
-        searchField.setText("");
+        showSearchFields();
         searchField.setPromptText("Buscar soci per cognom");
         whatToSearch = "SURNAME";
     }

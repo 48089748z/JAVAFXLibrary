@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -57,7 +58,7 @@
       <Button fx:id="buscar" layoutX="203.0" layoutY="81.0" mnemonicParsing="false" onAction="#search" text="Buscar" />
        <ScrollPane fx:id="scrollPane" layoutX="4.0" layoutY="29.0" prefHeight="321.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
            <content>
-               <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Scroll Text" wrappingWidth="246.7294921875" />
+               <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Text for Lists" wrappingWidth="246.7294921875" />
            </content>
        </ScrollPane>
    </children>
