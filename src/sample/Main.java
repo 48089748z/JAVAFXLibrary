@@ -11,7 +11,7 @@ public class Main extends Application
     {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Biblioteca de uRi");
-        primaryStage.setScene(new Scene(root, 300, 400));
+        primaryStage.setScene(new Scene(root, 400, 400));
         primaryStage.show();
     }
     public static void main(String[] args)

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -16,11 +16,19 @@
                   <MenuItem mnemonicParsing="false" onAction="#newPrestec" text="Prestec" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Modificar">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Llibres" />
+                  <MenuItem mnemonicParsing="false" text="Socis" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Llistar">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#listBooks" text="Llibres" />
-                  <MenuItem mnemonicParsing="false" onAction="#listMembers" text="Socis" />
-                  <MenuItem mnemonicParsing="false" onAction="#listPrestecs" text="Prestecs" />
+              <MenuItem mnemonicParsing="false" onAction="#listBooks" text="Tots els Llibres" />
+                  <MenuItem mnemonicParsing="false" onAction="#listMembers" text="Tots els Socis" />
+                  <MenuItem mnemonicParsing="false" onAction="#listPrestecs" text="Tots els Prestecs" />
+                  <MenuItem mnemonicParsing="false" onAction="#listBooksOutOfTerm" text="Llibres Fora de Termini" />
+                  <MenuItem mnemonicParsing="false" onAction="#listMembersOutOfTerm" text="Socis Fora de Termini" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Buscar">
@@ -41,6 +49,7 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Otros">
                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#info" text="Informacio" />
                   <MenuItem mnemonicParsing="false" onAction="#close" text="Tancar" />
                </items>
           </Menu>
@@ -52,13 +61,14 @@
       <TextField fx:id="field4" layoutX="14.0" layoutY="187.0" />
       <TextField fx:id="field5" layoutX="14.0" layoutY="229.0" />
       <TextField fx:id="field6" layoutX="14.0" layoutY="270.0" />
-      <Button fx:id="guardar" layoutX="69.0" layoutY="317.0" mnemonicParsing="false" onAction="#checkFields" prefHeight="26.0" prefWidth="142.0" text="Guardar" />
-      <Text fx:id="textGuide" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benvingut a la biblioteca" wrappingWidth="171.00000008940697" />
+      <Button fx:id="guardar" layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#checkFields" prefHeight="26.0" prefWidth="142.0" text="Guardar" />
+      <Text fx:id="textGuide" layoutX="13.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benvingut a la biblioteca" wrappingWidth="376.00000008940697" />
       <TextField fx:id="searchField" layoutX="14.0" layoutY="81.0" />
       <Button fx:id="buscar" layoutX="203.0" layoutY="81.0" mnemonicParsing="false" onAction="#search" text="Buscar" />
+      <Text fx:id="dateFormatGuide" layoutX="14.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.999999165535" />
        <ScrollPane fx:id="scrollPane" layoutX="4.0" layoutY="29.0" prefHeight="321.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
            <content>
-               <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Text for Lists" wrappingWidth="246.7294921875" />
+               <Text fx:id="scrollText" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Text for Lists" wrappingWidth="383.7294921875" />
            </content>
        </ScrollPane>
    </children>

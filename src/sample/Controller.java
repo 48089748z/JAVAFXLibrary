@@ -5,12 +5,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 public class Controller
 {
     public ScrollPane scrollPane;
     public Text scrollText;
     public Text textGuide;
+    public Text dateFormatGuide;
     public TextField searchField;
     public TextField field1;
     public TextField field2;
@@ -23,6 +29,7 @@ public class Controller
     private ArrayList<Llibre> llibres = new ArrayList<>();
     private ArrayList<Soci> socis = new ArrayList<>();
     private ArrayList<Prestec> prestecs = new ArrayList<>();
+    public String dateError;
     public String newWhat;
     public String whatToSearch;
 
@@ -30,7 +37,7 @@ public class Controller
     {
         if (field1.getText().equals("") || field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("") || field5.getText().equals("") || field6.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOMPLE TOTS ELS CAMPS!");
         }
         else
         {
@@ -43,6 +50,7 @@ public class Controller
             llibre.setAutor(field6.getText());
             llibres.add(llibre);
             hideAllFields();
+            textGuide.setVisible(true);
             textGuide.setText("\nCREAT LLIBRE: \n" + llibre.toString());
         }
     }
@@ -50,7 +58,7 @@ public class Controller
     {
         if (field1.getText().equals("") || field2.getText().equals("") ||field3.getText().equals("") ||field4.getText().equals("") ||field5.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOMPLE TOTS ELS CAMPS!");
         }
         else
         {
@@ -62,6 +70,7 @@ public class Controller
             soci.setTelefon(field5.getText());
             socis.add(soci);
             hideAllFields();
+            textGuide.setVisible(true);
             textGuide.setText("\nCREAT SOCI: \n" + soci.toString());
         }
     }
@@ -69,7 +78,7 @@ public class Controller
     {
         if (field1.getText().equals("") || field2.getText().equals("") ||field3.getText().equals("") ||field4.getText().equals(""))
         {
-            textGuide.setText("Omple tots els camps!");
+            textGuide.setText("\nOMPLE TOTS ELS CAMPS!");
         }
         else
         {
@@ -88,31 +97,65 @@ public class Controller
                     prestec.setSoci(socis.get(x));
                 }
             }
-            prestec.setDataInici(field3.getText());
-            prestec.setDataFinal(field4.getText());
-            hideAllFields();
             try
             {
-                textGuide.setText("\nCREAT PRESTEC: \n" + prestec.toString());
-                prestecs.add(prestec);
+                DateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
+                Date dataInici = formatter.parse(field3.getText());
+                Date dataFinal = formatter.parse(field4.getText());
+                prestec.setDataInici(dataInici);
+                prestec.setDataFinal(dataFinal);
+                checkDates(dataInici, dataFinal);
+                try
+                {
+                    hideAllFields();
+                    textGuide.setVisible(true);
+                    textGuide.setText("\nCREAT PRESTEC: \n" + prestec.toString());
+                    prestecs.add(prestec);
+                }
+                catch (Exception one)
+                {
+                    textGuide.setText("\nLlibre o Soci no existent!\n\nBusca a la llista de Llibres i Socis per veure quins hi han disponibles.\n\nTambé pots crear'ne de nous.");
+                }
             }
-            catch (Exception e)
+            catch(InvalidDateException two)
             {
-                textGuide.setText("\nLlibre o Soci no existent!\n\nBusca a la llista de Llibres i Socis per veure quins hi han disponibles.\n\nTambé pots crear'ne de nous.");
+                if (dateError.equals("IGUALS"))
+                {
+                    dateFormatGuide.setText("\nLes Dates no poden ser iguals!\n\nEl Format de les Dates ha de ser   \"  DD/MM/YYYY  \"");
+                }
+                if (dateError.equals("FINALABANSQUEINICIAL"))
+                {
+                    dateFormatGuide.setText("\nLa Data Final no pot anar abans que la Data Inici!\n\nEl Format de les Dates ha de ser   \"  DD/MM/YYYY  \"");
+                }
             }
+            catch (Exception three)
+            {
+                textGuide.setText("\nEl Format de les Dates es Incorrecte!");
+            }
+        }
+    }
+    public void checkDates(Date dataInici, Date dataFinal) throws InvalidDateException
+    {
+        if(dataInici.equals(dataFinal))
+        {
+            dateError = "IGUALS";
+            throw new InvalidDateException();
+        }
+        if (dataInici.after(dataFinal))
+        {
+            dateError = "FINALABANSQUEINICIAL";
+            throw new InvalidDateException();
         }
     }
     public void initialize()
     {
-        textGuide.setText("\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres.\n\nAfegir Socis.\n\nAfegir Prestecs.\n\nMostrar llistats de Llibres.\n\nMostrar llistats de Socis.\n\nMostrar llistats de Prestecs.\n\nEtc.");
-        hideAllFields();
-        textGuide.setVisible(true);
+       info();
     }
     public void newBook(ActionEvent actionEvent)
     {
         newWhat="BOOK";
         showNewFields();
-        textGuide.setText("Nou Llibre");
+        textGuide.setText("\nNOU LLIBRE");
         field1.setPromptText("Titol");
         field2.setPromptText("Num Exemplars");
         field3.setPromptText("Editorial");
@@ -124,7 +167,7 @@ public class Controller
     {
         newWhat="SOCI";
         showNewFields();
-        textGuide.setText("Nou Soci");
+        textGuide.setText("\nNOU SOCI");
         field1.setPromptText("Nom");
         field2.setPromptText("Cognom");
         field3.setPromptText("Edat");
@@ -135,7 +178,9 @@ public class Controller
     {
         newWhat="PRESTEC";
         showNewFields();
-        textGuide.setText("Nou Prestec");
+        dateFormatGuide.setVisible(true);
+        dateFormatGuide.setText("\nEl Format de les Dates ha de ser   \"  DD/MM/YYYY  \"");
+        textGuide.setText("\nNOU PRESTEC");
         field1.setPromptText("Titol Llibre");
         field2.setPromptText("Nom Soci");
         field3.setPromptText("Data Inici");
@@ -167,6 +212,7 @@ public class Controller
     }
     public void hideAllFields()
     {
+        dateFormatGuide.setVisible(false);
         textGuide.setVisible(false);
         searchField.setVisible(false);
         scrollPane.setVisible(false);
@@ -216,25 +262,33 @@ public class Controller
     public void searchBookByTitle(ActionEvent actionEvent)
     {
         showSearchFields();
-        searchField.setPromptText("Buscar llibre por titol");
+        textGuide.setVisible(true);
+        textGuide.setText("\nBUSCANT LLIBRE PER TITOL.");
+        searchField.setPromptText("Titol");
         whatToSearch = "TITLE";
     }
     public void searchBookByAuthor(ActionEvent actionEvent)
     {
         showSearchFields();
-        searchField.setPromptText("Buscar llibre per autor");
+        textGuide.setVisible(true);
+        textGuide.setText("\nBUSCANT LLIBRE PER AUTOR.");
+        searchField.setPromptText("Autor");
         whatToSearch = "AUTHOR";
     }
     public void searchMemberByName(ActionEvent actionEvent)
     {
         showSearchFields();
-        searchField.setPromptText("Buscar soci per nom");
+        textGuide.setVisible(true);
+        textGuide.setText("\nBUSCANT SOCI PER NOM.");
+        searchField.setPromptText("Nom");
         whatToSearch = "NAME";
     }
     public void searchMemberBySurname(ActionEvent actionEvent)
     {
         showSearchFields();
-        searchField.setPromptText("Buscar soci per cognom");
+        textGuide.setVisible(true);
+        textGuide.setText("\nBUSCANT SOCI PER COGNOM.");
+        searchField.setPromptText("Cognom");
         whatToSearch = "SURNAME";
     }
     public void search(ActionEvent actionEvent)
@@ -288,5 +342,41 @@ public class Controller
             }
         }
     }
+
+    public void info() {
+        textGuide.setText("\nINFORMACIÓ\n\n\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres, Socis i Prestecs.\n\nMostrar llistats de Llibres, Socis i Prestecs.\n\nBuscar Llibres per Titol o Autor.\n\nBuscar Socis per Nom o Cognom.\n\nBuscar Llibres fora de Termini.\n\nBuscar Socis fora de Termini.\n\nModificar Llibres, Socis i Prestecs.\n\nEtc.");
+        hideAllFields();
+        textGuide.setVisible(true);
+    }
+
+    public void listBooksOutOfTerm(ActionEvent actionEvent)
+    {
+        scrollPane.setVisible(true);
+        scrollText.setText("\n   LLISTA DE LLIBRES FORA DE TERMINI");
+        Date today = new Date();
+        for (int x=0; x<prestecs.size(); x++)
+        {
+            scrollText.setText(String.valueOf(x));
+            if (today.equals(prestecs.get(x).getDataFinal()) || today.after(prestecs.get(x).getDataFinal()))
+            {
+                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getLlibre().toString());
+            }
+        }
+    }
+    public void listMembersOutOfTerm(ActionEvent actionEvent)
+    {
+        scrollPane.setVisible(true);
+        scrollText.setText("\n   LLISTA DE SOCIS FORA DE TERMINI");
+        Date today = new Date();
+        for (int x=0; x<prestecs.size(); x++)
+        {
+            scrollText.setText(String.valueOf(x));
+            if (today.equals(prestecs.get(x).getDataFinal()) || today.after(prestecs.get(x).getDataFinal()))
+            {
+                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getSoci().toString());
+            }
+        }
+    }
     public void close(ActionEvent actionEvent) {Platform.exit();}
+    //public void info(ActionEvent actionEvent) {info();}
 }
