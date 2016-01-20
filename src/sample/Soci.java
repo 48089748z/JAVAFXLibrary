@@ -2,27 +2,19 @@ package sample;
 /**
  * Created by 48089748z on 08/01/16.
  */
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-@Table(name = "MEMBER")
-public class Soci
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+public class Soci implements Serializable
 {
-    @Id @GeneratedValue
-    @Column(name="nom")
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     private String nom;
-
-    @Column(name="cognom")
     private String cognom;
-
-    @Column(name="edat")
     private String edat;
-
-    @Column(name="direccio")
     private String direccio;
-
-    @Column(name="telefon")
     private String telefon;
 
     public Soci(){}

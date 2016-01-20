@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="hibernate-entitymanager-5.0.7.Final">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Baixades/NOBORRAR/hibernate-release-5.0.7.Final/lib/jpa/hibernate-entitymanager-5.0.7.Final.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

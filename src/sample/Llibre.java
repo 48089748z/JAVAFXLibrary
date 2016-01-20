@@ -1,31 +1,25 @@
 package sample;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 /**
  * Created by 48089748z on 08/01/16.
  */
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-@Table(name = "BOOK")
-public class Llibre
+@Entity
+public class Llibre implements Serializable
 {
-    @Id @GeneratedValue
-    @Column(name="titol")
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     private String titol;
-
-    @Column(name="autor")
     private String autor;
-
-    @Column(name="numExemplars")
     private String numExemplars;
-
-    @Column(name="editorial")
     private String editorial;
-
-    @Column(name="numPagines")
     private String numPagines;
-
-    @Column(name="anyEdicio")
     private String anyEdicio;
 
     public Llibre() {}

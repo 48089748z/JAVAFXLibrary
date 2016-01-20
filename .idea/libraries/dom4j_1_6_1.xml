@@ -1,0 +1,82 @@
+<component name="libraryTable">
+  <library name="dom4j-1.6.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Baixades/dom4j-1.6.1.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/antlr-2.7.7.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-commons-annotations-4.0.2.Final.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-core-4.2.2.Final.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-jpa-2.0-api-1.0.1.Final.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/jboss-logging-3.1.0.GA.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/javassist-3.15.0-GA.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/jboss-transaction-api_1.1_spec-1.0.1.Final.jar!/" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/documentation/javadocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/annotations/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/basic/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/entitymanager/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/envers/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/events/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/fetching/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/multitenancy/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/pc/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/query_criteria/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/chapters/services/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/devguide-old/en-US/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/integrationsGuide/en-US/chapters/services/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/integrationsGuide/en-US/chapters/services/extras/extend" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/integrationsGuide/en-US/chapters/services/extras/override" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/integrationsGuide/en-US/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/manual-old/en-US/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/basic/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/categoizations/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/collection/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/composition/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/entity/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/id/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/mappingGuide/en-US/chapters/natural_id/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/bootstrap/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/domain/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/events/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/fetching/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/locking/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/multitenancy/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/osgi/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/pc/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/query-criteria/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/documentation/src/main/docbook/userGuide/en-US/chapters/transactions/extras" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-c3p0/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-c3p0/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-core/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-core/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-ehcache/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-ehcache/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-entitymanager/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-entitymanager/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-envers/src/demo/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-envers/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-envers/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-hikaricp/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-hikaricp/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-infinispan/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-infinispan/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-java8/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-java8/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-osgi/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-osgi/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-proxool/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-proxool/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-spatial/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-spatial/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-testing/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/hibernate-testing/src/test/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/tooling/hibernate-enhance-maven-plugin/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/tooling/hibernate-gradle-plugin/src/main/groovy" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/tooling/metamodel-generator/src/main/java" />
+      <root url="jar://$USER_HOME$/Baixades/hibernate-release-5.0.7.Final.zip!/hibernate-release-5.0.7.Final/project/tooling/metamodel-generator/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

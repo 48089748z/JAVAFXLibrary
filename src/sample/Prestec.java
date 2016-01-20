@@ -1,27 +1,20 @@
 package sample;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 48089748z on 08/01/16.
  */
-@Table(name="LOAN")
-public class Prestec
+@Entity
+public class Prestec implements Serializable
 {
-    @Id @GeneratedValue
-    @Column(name="llibre")
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     private Llibre llibre;
-
-    @Column(name="soci")
     private Soci soci;
-
-    @Column(name="dataInici")
     private Date dataInici;
-
-    @Column(name="dataFinal")
     private Date dataFinal;
 
     public Prestec() {}
