@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1879136614">
+    <data-source source="LOCAL" name="PostgreSQL - hibernatedb@172.31.104.78 [2]" uuid="b811c4ed-4738-45e5-8955-ca17bbc0ade8">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.31.104.78:5432/hibernatedb</jdbc-url>
+    </data-source>
+  </component>
+</project>

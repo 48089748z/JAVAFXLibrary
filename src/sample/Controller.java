@@ -13,6 +13,7 @@ import java.util.Date;
 
 public class Controller
 {
+    public DAO DAO = new DAO();
     public ScrollPane scrollPane;
     public Text scrollText;
     public Text textGuide;
@@ -52,6 +53,7 @@ public class Controller
             hideAllFields();
             textGuide.setVisible(true);
             textGuide.setText("\nCREAT LLIBRE: \n" + llibre.toString());
+            DAO.saveBook(llibre);
         }
     }
     private void createSoci()
@@ -72,9 +74,10 @@ public class Controller
             hideAllFields();
             textGuide.setVisible(true);
             textGuide.setText("\nCREAT SOCI: \n" + soci.toString());
+            DAO.saveMember(soci);
         }
     }
-    private void createPrestec()
+    private void createLoan()
     {
         if (field1.getText().equals("") || field2.getText().equals("") ||field3.getText().equals("") ||field4.getText().equals(""))
         {
@@ -111,6 +114,7 @@ public class Controller
                     textGuide.setVisible(true);
                     textGuide.setText("\nCREAT PRESTEC: \n" + prestec.toString());
                     prestecs.add(prestec);
+                    DAO.saveLoan(prestec);
                 }
                 catch (Exception one)
                 {
@@ -134,6 +138,22 @@ public class Controller
             }
         }
     }
+    public void fillArraysFromDB()
+    {
+        try {llibres = DAO.getBooks();}
+        catch (Exception noBooks){}
+
+        try {socis = DAO.getMembers();}
+        catch (Exception noMembers){}
+
+        try { prestecs = DAO.getLoans();}
+        catch (Exception noLoans){}
+    }
+    public void initialize()
+    {
+        fillArraysFromDB();
+        info();
+    }
     public void checkDates(Date dataInici, Date dataFinal) throws InvalidDateException
     {
         if(dataInici.equals(dataFinal))
@@ -146,10 +166,6 @@ public class Controller
             dateError = "FINALABANSQUEINICIAL";
             throw new InvalidDateException();
         }
-    }
-    public void initialize()
-    {
-       info();
     }
     public void newBook(ActionEvent actionEvent)
     {
@@ -190,25 +206,38 @@ public class Controller
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE LLIBRES");
-        for (int x=0; x<llibres.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+llibres.get(x).toString());}
+        if (llibres.size()==0){scrollText.setText(scrollText.getText()+"\n\n       NO HI HA LLIBRES!");}
+        else
+        {
+            for (int x=0; x<llibres.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+llibres.get(x).toString());}
+        }
     }
     public void listMembers(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE SOCIS");
-        for (int x=0; x<socis.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+socis.get(x).toString());}
+        if (socis.size()==0){scrollText.setText(scrollText.getText()+"\n\n       NO HI HA LLIBRES!");}
+        else
+        {
+            for (int x=0; x<socis.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+socis.get(x).toString());}
+        }
     }
     public void listPrestecs(ActionEvent actionEvent)
     {
         scrollPane.setVisible(true);
         scrollText.setText("\n   LLISTA DE PRESTECS");
-        for (int x=0; x<prestecs.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+prestecs.get(x).toString());}
+        if (prestecs.size()==0){scrollText.setText(scrollText.getText()+"\n\n       NO HI HA LLIBRES!");}
+        else
+        {
+            for (int x=0; x<prestecs.size(); x++) {scrollText.setText(scrollText.getText()+"\n\n"+prestecs.get(x).toString());}
+        }
     }
     public void checkFields(ActionEvent actionEvent)
     {
         if (newWhat.equals("BOOK")) {createBook();}
         if (newWhat.equals("SOCI")) {createSoci();}
-        if (newWhat.equals("PRESTEC")) {createPrestec();}
+        if (newWhat.equals("PRESTEC")) {
+            createLoan();}
     }
     public void hideAllFields()
     {
@@ -343,7 +372,8 @@ public class Controller
         }
     }
 
-    public void info() {
+    public void info()
+    {
         textGuide.setText("\nINFORMACIÓ\n\n\nBenvingut a la biblioteca, aqui podrás:\n\nAfegir Llibres, Socis i Prestecs.\n\nMostrar llistats de Llibres, Socis i Prestecs.\n\nBuscar Llibres per Titol o Autor.\n\nBuscar Socis per Nom o Cognom.\n\nBuscar Llibres fora de Termini.\n\nBuscar Socis fora de Termini.\n\nModificar Llibres, Socis i Prestecs.\n\nEtc.");
         hideAllFields();
         textGuide.setVisible(true);

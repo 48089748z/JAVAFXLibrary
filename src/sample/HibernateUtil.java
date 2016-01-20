@@ -4,13 +4,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
+
 /**
  * Created by 48089748z on 20/01/16.
  */
 public class HibernateUtil
 {
     private static final SessionFactory sessionFactory;
-
     static
     {
         try
@@ -19,7 +19,7 @@ public class HibernateUtil
         }
         catch (HibernateException one)
         {
-            System.err.println("Error en el Start de la SessionFactory: " + one);
+            System.err.println("Error en la SessionFactory: " + one);
             throw new ExceptionInInitializerError(one);
         }
     }
