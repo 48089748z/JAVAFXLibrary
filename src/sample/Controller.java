@@ -140,6 +140,7 @@ public class Controller
     }
     public void fillArraysFromDB()
     {
+        llibres = DAO.getBooks();
         try {llibres = DAO.getBooks();}
         catch (Exception noBooks){}
 

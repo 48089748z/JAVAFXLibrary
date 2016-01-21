@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.sql.Select;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -69,42 +70,22 @@ public class DAO
     }
     public ArrayList<Llibre> getBooks()
     {
-        String select = "FROM Llibre ";
-        Query query = session.createQuery(select);
-        ArrayList<Llibre> results = (ArrayList<Llibre>) query.list();
-        return results;
+        start();
+        Query query = session.createQuery("FROM Llibre ");
+        return (ArrayList<Llibre>) query.list();
     }
     public ArrayList<Soci> getMembers()
     {
-        String select = "FROM Soci ";
-        Query query = session.createQuery(select);
-        ArrayList<Soci> results = (ArrayList<Soci>) query.list();
-        return results;
-
+        start();
+        Query query = session.createQuery("FROM Soci ");
+        return (ArrayList<Soci>) query.list();
     }
     public ArrayList<Prestec> getLoans()
     {
-        String select = "FROM Prestec ";
-        Query query = session.createQuery(select);
-        ArrayList<Prestec> results = (ArrayList<Prestec>) query.list();
-        return results;
-
+        start();
+        Query query = session.createQuery("FROM Prestec ");
+        return (ArrayList<Prestec>) query.list();
     }
-
-    /*
-    public Llibre getBook(long id) throws HibernateException
-    {
-        Llibre contacto = null;
-        try
-        {
-            start();
-            contacto = session.get(Llibre.class, id);
-        }
-        finally {session.close();}
-
-        return contacto;
-    }*/
-
     private void start() throws HibernateException
     {
         session = HibernateUtil.getSessionFactory().openSession();
