@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -18,8 +18,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Modificar">
               <items>
-                <MenuItem mnemonicParsing="false" text="Llibres" />
-                  <MenuItem mnemonicParsing="false" text="Socis" />
+                <MenuItem mnemonicParsing="false" onAction="#modificarLibro" text="Llibres" />
+                  <MenuItem mnemonicParsing="false" onAction="#modificarSocio" text="Socis" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Llistar">
@@ -49,6 +49,7 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Otros">
                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#deleteAll" text="Borrar Todo" />
                   <MenuItem mnemonicParsing="false" onAction="#info" text="Informacio" />
                   <MenuItem mnemonicParsing="false" onAction="#close" text="Tancar" />
                </items>

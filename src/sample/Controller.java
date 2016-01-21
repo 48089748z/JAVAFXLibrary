@@ -390,7 +390,7 @@ public class Controller
             scrollText.setText(String.valueOf(x));
             if (today.equals(prestecs.get(x).getDataFinal()) || today.after(prestecs.get(x).getDataFinal()))
             {
-                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getLlibre().toString());
+                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getLlibre().toString()+"\n     Data Actual: "+new Date().toString()+"\n     Data Limit: "+prestecs.get(x).getDataFinal().toString());
             }
         }
     }
@@ -404,10 +404,19 @@ public class Controller
             scrollText.setText(String.valueOf(x));
             if (today.equals(prestecs.get(x).getDataFinal()) || today.after(prestecs.get(x).getDataFinal()))
             {
-                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getSoci().toString());
+                scrollText.setText("\n"+scrollText.getText()+"\n\n"+prestecs.get(x).getSoci().toString()+"\n     Data Actual: "+new Date().toString()+"\n     Data Limit: "+prestecs.get(x).getDataFinal().toString());
             }
         }
     }
     public void close(ActionEvent actionEvent) {Platform.exit();}
-    //public void info(ActionEvent actionEvent) {info();}
+
+    public void deleteAll(ActionEvent actionEvent)
+    {
+        if (DAO.deleteAllBooks()) {llibres.clear();}
+        if (DAO.deleteAllMembers()) {socis.clear();}
+        if (DAO.deleteAllLoans()){prestecs.clear();}
+    }
+
+    public void modificarLibro(ActionEvent actionEvent) {}
+    public void modificarSocio(ActionEvent actionEvent) {}
 }

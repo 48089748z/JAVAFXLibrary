@@ -1,25 +1,13 @@
 package sample;
-/**
- * Created by 48089748z on 20/01/16.
- */
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.sql.Select;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class DAO
 {
-    private static String DRIVER = "org.postgresql.Driver";
-    private static String DBNAME = "jdbc:postgresql://172.31.104.78/hibernatedb,uri2,uri2";
     private Session session;
     private Transaction transaction;
 
@@ -85,6 +73,38 @@ public class DAO
         start();
         Query query = session.createQuery("FROM Prestec ");
         return (ArrayList<Prestec>) query.list();
+    }
+    public boolean deleteAllBooks()
+    {
+        try
+        {
+            start();
+            session.createQuery("FROM Llibre ").executeUpdate();
+            return true;
+        }
+        catch (Exception one){return false;}
+    }
+    public boolean deleteAllMembers()
+    {
+        try
+        {
+            start();
+            session.createQuery("DELETE FROM Soci ").executeUpdate();
+            return true;
+        }
+
+        catch (Exception one){return false;}
+    }
+    public boolean deleteAllLoans()
+    {
+        try
+        {
+            start();
+            session.createQuery("DELETE FROM Prestec ").executeUpdate();
+            return true;
+        }
+
+        catch (Exception one){return false;}
     }
     private void start() throws HibernateException
     {
