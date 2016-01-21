@@ -79,7 +79,7 @@ public class DAO
         try
         {
             start();
-            session.createQuery("FROM Llibre ").executeUpdate();
+            session.createQuery("DELETE FROM Llibre ").executeUpdate();
             return true;
         }
         catch (Exception one){return false;}
