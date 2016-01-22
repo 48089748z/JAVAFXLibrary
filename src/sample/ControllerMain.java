@@ -1,19 +1,31 @@
 package sample;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Controller
+public class ControllerMain
 {
-    public DAO DAO = new DAO();
+    private DAO DAO = new DAO();
+    private ArrayList<Llibre> llibres = new ArrayList<>();
+    private ArrayList<Soci> socis = new ArrayList<>();
+    private ArrayList<Prestec> prestecs = new ArrayList<>();
+    private String dateError;
+    private String newWhat;
+    private String whatToSearch;
+
     public ScrollPane scrollPane;
     public Text scrollText;
     public Text textGuide;
@@ -27,12 +39,6 @@ public class Controller
     public TextField field6;
     public Button guardar;
     public Button buscar;
-    private ArrayList<Llibre> llibres = new ArrayList<>();
-    private ArrayList<Soci> socis = new ArrayList<>();
-    private ArrayList<Prestec> prestecs = new ArrayList<>();
-    public String dateError;
-    public String newWhat;
-    public String whatToSearch;
 
     private void createBook()
     {
@@ -417,6 +423,24 @@ public class Controller
         if (DAO.deleteAllLoans()){prestecs.clear();}
     }
 
-    public void modificarLibro(ActionEvent actionEvent) {}
-    public void modificarSocio(ActionEvent actionEvent) {}
+    public void modificarLibro(ActionEvent actionEvent)
+    {
+        openModifyWindow("Modificar Libros");
+    }
+    public void modificarSocio(ActionEvent actionEvent)
+    {
+        openModifyWindow("Modificar Socios");
+    }
+    public void openModifyWindow(String type)
+    {
+        try
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("windowModifyBooks.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle(type);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch (IOException one) {}
+    }
 }

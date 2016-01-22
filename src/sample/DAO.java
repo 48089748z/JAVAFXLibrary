@@ -1,9 +1,15 @@
 package sample;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DAO
@@ -74,41 +80,39 @@ public class DAO
         Query query = session.createQuery("FROM Prestec ");
         return (ArrayList<Prestec>) query.list();
     }
+    private void start() throws HibernateException
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+    }
     public boolean deleteAllBooks()
     {
         try
         {
             start();
-            session.createQuery("DELETE FROM Llibre ").executeUpdate();
+            session.createQuery("DELETE FROM Llibre").executeUpdate();
+            session.close();
             return true;
-        }
-        catch (Exception one){return false;}
+        } catch (Exception one){return false;}
     }
     public boolean deleteAllMembers()
     {
         try
         {
             start();
-            session.createQuery("DELETE FROM Soci ").executeUpdate();
+            session.createQuery("DELETE FROM Soci").executeUpdate();
+            session.close();
             return true;
-        }
-
-        catch (Exception one){return false;}
+        } catch (Exception one){return false;}
     }
     public boolean deleteAllLoans()
     {
         try
         {
             start();
-            session.createQuery("DELETE FROM Prestec ").executeUpdate();
+            session.createQuery("DELETE FROM Prestec").executeUpdate();
+            session.close();
             return true;
-        }
-
-        catch (Exception one){return false;}
-    }
-    private void start() throws HibernateException
-    {
-        session = HibernateUtil.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
+        } catch (Exception one){return false;}
     }
 }
