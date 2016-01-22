@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerModifyMembers">
+    <children>
+        <TextField fx:id="modifyM1" layoutX="22.0" layoutY="30.0" />
+        <TextField fx:id="modifyM2" layoutX="22.0" layoutY="70.0" />
+        <TextField fx:id="modifyM3" layoutX="22.0" layoutY="110.0" />
+        <TextField fx:id="modifyM4" layoutX="22.0" layoutY="150.0" />
+        <TextField fx:id="modifyM5" layoutX="22.0" layoutY="190.0" />
+        <Button fx:id="modifyMGuardar" layoutX="37.0" layoutY="270.0" mnemonicParsing="false" onAction="#guardar" prefHeight="26.0" prefWidth="142.0" text="Guardar" />
+        <Button layoutX="37.0" layoutY="310.0" mnemonicParsing="false" onAction="#borrar" prefHeight="26.0" prefWidth="142.0" text="Borrar" />
+        <ListView fx:id="listViewMembers" prefHeight="391.0" prefWidth="215.0" />
+        <Text fx:id="modifyMGuide" layoutX="22.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TextGuide" wrappingWidth="170.99999696016312" />
+    </children>
+</AnchorPane>

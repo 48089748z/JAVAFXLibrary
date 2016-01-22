@@ -16,8 +16,9 @@ public class Soci implements Serializable
     private String edat;
     private String direccio;
     private String telefon;
+    private String toString;
 
-    public Soci(){}
+    public Soci() {}
     public String getNom() {
         return nom;
     }
@@ -57,9 +58,9 @@ public class Soci implements Serializable
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-
+    public void setToString() {toString = "\n     Nom: "+nom+"\n     Cognom: "+cognom+"\n     Edat: "+edat+"\n     Direcció: "+direccio+"\n     Telefon: "+telefon;}
     public String toString()
     {
-        return "\n     Nom: "+nom+"\n     Cognom: "+cognom+"\n     Edat: "+edat+"\n     Direcció: "+direccio+"\n     Telefon: "+telefon;
+        return toString;
     }
 }

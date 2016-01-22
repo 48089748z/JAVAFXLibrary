@@ -18,6 +18,7 @@ public class Llibre implements Serializable
     private String editorial;
     private String numPagines;
     private String anyEdicio;
+    private String toString;
 
     public Llibre() {}
     public String getTitol() {return titol;}
@@ -32,8 +33,12 @@ public class Llibre implements Serializable
     public void setNumPagines(String numPagines) {this.numPagines = numPagines;}
     public String getAutor() {return autor;}
     public void setAutor(String autor) {this.autor = autor;}
+    public void setToString()
+    {
+        toString = "\n     Titol: "+titol+"\n     Autor: "+autor+"\n     Num Exemplars: "+numExemplars+"\n     Editorial: "+editorial+"\n     Num Pagines: "+numPagines+"\n     Any Edició: "+anyEdicio;
+    }
     public String toString()
     {
-        return "\n     Titol: "+titol+"\n     Autor: "+autor+"\n     Num Exemplars: "+numExemplars+"\n     Editorial: "+editorial+"\n     Num Pagines: "+numPagines+"\n     - Any Edició: "+anyEdicio;
+        return toString;
     }
 }

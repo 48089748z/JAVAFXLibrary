@@ -55,6 +55,7 @@ public class ControllerMain
             llibre.setNumPagines(field4.getText());
             llibre.setAnyEdicio(field5.getText());
             llibre.setAutor(field6.getText());
+            llibre.setToString();
             llibres.add(llibre);
             hideAllFields();
             textGuide.setVisible(true);
@@ -76,6 +77,7 @@ public class ControllerMain
             soci.setEdat(field3.getText());
             soci.setDireccio(field4.getText());
             soci.setTelefon(field5.getText());
+            soci.setToString();
             socis.add(soci);
             hideAllFields();
             textGuide.setVisible(true);
@@ -425,19 +427,19 @@ public class ControllerMain
 
     public void modificarLibro(ActionEvent actionEvent)
     {
-        openModifyWindow("Modificar Libros");
+        openModifyWindow("Modificar Libros", "windowModifyBooks.fxml");
     }
     public void modificarSocio(ActionEvent actionEvent)
     {
-        openModifyWindow("Modificar Socios");
+        openModifyWindow("Modificar Socios", "windowModifyMembers.fxml");
     }
-    public void openModifyWindow(String type)
+    public void openModifyWindow(String title, String type)
     {
         try
         {
-            Parent root = FXMLLoader.load(getClass().getResource("windowModifyBooks.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(type));
             Stage stage = new Stage();
-            stage.setTitle(type);
+            stage.setTitle(title);
             stage.setScene(new Scene(root));
             stage.show();
         }

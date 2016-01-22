@@ -115,4 +115,23 @@ public class DAO
             return true;
         } catch (Exception one){return false;}
     }
+    public void deleteBook(String toString)
+    {
+        try
+        {
+            start();
+            session.createQuery("DELETE FROM Llibre WHERE toString LIKE "+toString).executeUpdate();
+            session.close();
+        } catch (Exception one){}
+    }
+    public void deleteMember(String toString)
+    {
+        try
+        {
+            start();
+            session.createQuery("DELETE FROM Soci WHERE toString = "+toString).executeUpdate();
+            session.close();
+
+        } catch (Exception one){}
+    }
 }
