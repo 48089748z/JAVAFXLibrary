@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HIBERNATE ANNOTATIONS">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../LIBRERIAS/HIBERNATE ANNOTATIONS.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

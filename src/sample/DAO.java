@@ -1,15 +1,8 @@
 package sample;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class DAO
@@ -90,7 +83,8 @@ public class DAO
         try
         {
             start();
-            session.createQuery("DELETE FROM Llibre").executeUpdate();
+            session.createQuery("DELETE FROM Llibre ").executeUpdate();
+            transaction.commit();
             session.close();
             return true;
         } catch (Exception one){return false;}
@@ -100,7 +94,8 @@ public class DAO
         try
         {
             start();
-            session.createQuery("DELETE FROM Soci").executeUpdate();
+            session.createQuery("DELETE FROM Soci ").executeUpdate();
+            transaction.commit();
             session.close();
             return true;
         } catch (Exception one){return false;}
@@ -110,7 +105,8 @@ public class DAO
         try
         {
             start();
-            session.createQuery("DELETE FROM Prestec").executeUpdate();
+            session.createQuery("DELETE FROM Prestec ").executeUpdate();
+            transaction.commit();
             session.close();
             return true;
         } catch (Exception one){return false;}
@@ -121,6 +117,7 @@ public class DAO
         {
             start();
             session.createQuery("DELETE FROM Llibre WHERE toString LIKE "+toString).executeUpdate();
+            transaction.commit();
             session.close();
         } catch (Exception one){}
     }
@@ -130,6 +127,7 @@ public class DAO
         {
             start();
             session.createQuery("DELETE FROM Soci WHERE toString = "+toString).executeUpdate();
+            transaction.commit();
             session.close();
 
         } catch (Exception one){}

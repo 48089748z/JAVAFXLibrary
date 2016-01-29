@@ -110,7 +110,7 @@ public class ControllerMain
             }
             try
             {
-                DateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
+                DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
                 Date dataInici = formatter.parse(field3.getText());
                 Date dataFinal = formatter.parse(field4.getText());
                 prestec.setDataInici(dataInici);
